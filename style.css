@@ -1,0 +1,121 @@
+* {
+  font-family: "Andale Mono", monospace;
+}
+
+main {
+  width: 350px;
+  margin: 25vh auto;
+}
+
+h3 {
+  padding: 1em 0;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em;
+  align-items: center;
+}
+.form-group:last-child {
+  border-top: 1px dashed black;
+  padding-top: 2em;
+}
+
+label {
+  justify-self: end;
+}
+.select-wrapper {
+  justify-self: start;
+}
+
+select:nth-child(2) {
+  margin-left: 0.25em;
+}
+
+#form input {
+  width: 4em;
+}
+#form select {
+  width: fit-content(10em);
+}
+
+#chart {
+  display: flex;
+  margin: 1em 0em;
+}
+.cell {
+  background: rgb(0, 200, 0);
+  flex: 1;
+  width: 0.75em;
+  height: 0.75em;
+  border: 1px solid black;
+  border-left: none;
+}
+.cell:nth-child(10)::after {
+  content: "9";
+  color: rgb(200, 0, 0);
+  font-weight: bold;
+  font-size: 0.75rem;
+  position: relative;
+  top: -1.5em;
+  left: -0.25em;
+}
+.cell:nth-child(13)::after {
+  content: "12";
+  color: rgb(200, 0, 0);
+  font-weight: bold;
+  font-size: 0.75rem;
+  position: relative;
+  top: -1.5em;
+  left: -0.66em;
+}
+.cell:nth-child(18)::after {
+  content: "5";
+  color: rgb(200, 0, 0);
+  font-weight: bold;
+  font-size: 0.75rem;
+  position: relative;
+  top: -1.5em;
+  left: -0.25em;
+}
+
+.cell:first-child {
+  border-left: 1px solid black;
+}
+
+.yellow {
+  background: rgb(255, 255, 0);
+}
+
+.red {
+  background: rgb(255, 0, 0);
+}
+
+select {
+  max-width: 76px;
+}
+
+button {
+  width: 10ch;
+  text-transform: uppercase;
+  padding: 0.25em 1em;
+}
+
+#btn-draw {
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.actions {
+  border-top: 1px dashed black;
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
