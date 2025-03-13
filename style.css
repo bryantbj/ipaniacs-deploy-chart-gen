@@ -50,7 +50,7 @@ select:nth-child(2) {
   margin: 1em 0em;
 }
 .cell {
-  background: rgb(0, 200, 0);
+  background: rgb(0, 255, 0);
   flex: 1;
   width: 0.75em;
   height: 0.75em;
@@ -59,7 +59,7 @@ select:nth-child(2) {
 }
 .cell:nth-child(10)::after {
   content: "9";
-  color: rgb(200, 0, 0);
+  color: rgb(255, 0, 0);
   font-weight: bold;
   font-size: 0.75rem;
   position: relative;
@@ -68,7 +68,7 @@ select:nth-child(2) {
 }
 .cell:nth-child(13)::after {
   content: "12";
-  color: rgb(200, 0, 0);
+  color: rgb(255, 0, 0);
   font-weight: bold;
   font-size: 0.75rem;
   position: relative;
@@ -77,7 +77,7 @@ select:nth-child(2) {
 }
 .cell:nth-child(18)::after {
   content: "5";
-  color: rgb(200, 0, 0);
+  color: rgb(255, 0, 0);
   font-weight: bold;
   font-size: 0.75rem;
   position: relative;
