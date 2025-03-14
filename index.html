@@ -1,249 +1,167 @@
-<html>
-  <head>
-    <style>
-      * {
-        font-family: "Andale Mono", monospace;
-      }
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Deploy Window Chart Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./style.css">
 
-      main {
-        width: 350px;
-        margin: 25vh auto;
-      }
-
-      h3 {
-        padding: 1em 0;
-      }
-
-      #form {
-        display: flex;
-        flex-direction: column;
-        grid-template-columns: 1fr 1fr;
-        gap: 2em;
-      }
-
-      .form-group {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.5em;
-        align-items: center;
-      }
-
-      #form input {
-        width: 4em;
-      }
-
-      #form select {
-        width: fit-content(10em);
-      }
-
-      #chart {
-        display: flex;
-        margin: 1em 0em;
-      }
-
-      .cell {
-        background: rgb(0, 200, 0);
-        width: 0.75em;
-        height: 0.75em;
-        border: 1px solid black;
-        border-left: none;
-      }
-
-      .cell:nth-child(10)::after {
-        content: "9";
-        color: rgb(200, 0, 0);
-        font-weight: bold;
-        font-size: 0.75rem;
-        position: relative;
-        top: -1.5em;
-        left: -0.25em;
-      }
-
-      .cell:nth-child(13)::after {
-        content: "12";
-        color: rgb(200, 0, 0);
-        font-weight: bold;
-        font-size: 0.75rem;
-        position: relative;
-        top: -1.5em;
-        left: -0.66em;
-      }
-
-      .cell:nth-child(18)::after {
-        content: "5";
-        color: rgb(200, 0, 0);
-        font-weight: bold;
-        font-size: 0.75rem;
-        position: relative;
-        top: -1.5em;
-        left: -0.25em;
-      }
-
-      .cell:first-child {
-        border-left: 1px solid black;
-      }
-
-      .yellow {
-        background: rgb(255, 255, 0);
-      }
-
-      .red {
-        background: rgb(255, 0, 0);
-      }
-
-      select {
-        max-width: 76px;
-      }
-
-      #btn-draw {
-        grid-column: span 2;
-        width: fit-content;
-        padding: 0.25em 1em;
-        margin: 1em auto;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h3> Deploy Window Chart Generator </h3>
-      <div id="chart">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main>
+  <h3>
+    Deploy Window Chart Generator
+  </h3>
+  <div id="chart">
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+  </div>
+  <div id="form">
+    <div class="form-group">
+      <label>Start</label>
+      <div class="select-wrapper">
+        <select id="start_hour" name="start_hour">
+          <option value="1">
+            1
+          </option>
+          <option value="2">
+            2
+          </option>
+          <option value="3">
+            3
+          </option>
+          <option value="4">
+            4
+          </option>
+          <option value="5">
+            5
+          </option>
+          <option value="6">
+            6
+          </option>
+          <option value="7">
+            7
+          </option>
+          <option value="8">
+            8
+          </option>
+          <option value="9">
+            9
+          </option>
+          <option selected="true" value="10">
+            10
+          </option>
+          <option value="11">
+            11
+          </option>
+          <option value="12">
+            12
+          </option>
+        </select><select id="start_half" name="start_half">
+          <option selected="true" value="am">
+            am
+          </option>
+          <option value="pm">
+            pm
+          </option>
+        </select>
       </div>
-      <div id="form">
-        <div class="form-group">
-          <label>Start</label>
-          <div>
-            <select id="start_hour" name="start_hour">
-              <option value="1"> 1 </option>
-              <option value="2"> 2 </option>
-              <option value="3"> 3 </option>
-              <option value="4"> 4 </option>
-              <option value="5"> 5 </option>
-              <option value="6"> 6 </option>
-              <option value="7"> 7 </option>
-              <option value="8"> 8 </option>
-              <option selected="true" value="9"> 9 </option>
-              <option value="10"> 10 </option>
-              <option value="11"> 11 </option>
-              <option value="12"> 12 </option>
-            </select>
-            <select id="start_half" name="start_half">
-              <option selected="true" value="am"> am </option>
-              <option value="pm"> pm </option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>End</label>
-          <div>
-            <select id="end_hour" name="end_hour">
-              <option value="1"> 1 </option>
-              <option value="2"> 2 </option>
-              <option value="3"> 3 </option>
-              <option value="4"> 4 </option>
-              <option selected="true" value="5"> 5 </option>
-              <option value="6"> 6 </option>
-              <option value="7"> 7 </option>
-              <option value="8"> 8 </option>
-              <option value="9"> 9 </option>
-              <option value="10"> 10 </option>
-              <option value="11"> 11 </option>
-              <option value="12"> 12 </option>
-            </select>
-            <select id="end_half" name="end_half">
-              <option value="am"> am </option>
-              <option selected="true" value="pm"> pm </option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Color</label>
-          <select id="color" name="color">
-            <option value="g"> Green </option>
-            <option value="y"> Yellow </option>
-            <option value="r"> Red </option>
-          </select>
-        </div>
-        <div class="form-group">
-          <button id="btn-draw">Draw</button>
-        </div>
+    </div>
+    <div class="form-group">
+      <label>End</label>
+      <div class="select-wrapper">
+        <select id="end_hour" name="end_hour">
+          <option value="1">
+            1
+          </option>
+          <option value="2">
+            2
+          </option>
+          <option selected="true" value="3">
+            3
+          </option>
+          <option value="4">
+            4
+          </option>
+          <option value="5">
+            5
+          </option>
+          <option value="6">
+            6
+          </option>
+          <option value="7">
+            7
+          </option>
+          <option value="8">
+            8
+          </option>
+          <option value="9">
+            9
+          </option>
+          <option value="10">
+            10
+          </option>
+          <option value="11">
+            11
+          </option>
+          <option value="12">
+            12
+          </option>
+        </select><select id="end_half" name="end_half">
+          <option value="am">
+            am
+          </option>
+          <option selected="true" value="pm">
+            pm
+          </option>
+        </select>
       </div>
-    </main>
-    <script>
-      document.addEventListener("DOMContentLoaded", function(event) {
-        COLORS = {
-          g: 'green',
-          y: 'yellow',
-          r: 'red'
-        };
-        const calcTime = (valId, halfId) => {
-          const el = document.querySelector(valId);
-          const val = parseInt(el.options[el.selectedIndex].value, 10);
-          const el2 = document.querySelector(halfId);
-          const half = el2.options[el2.selectedIndex].value;
-          return val + (half === 'pm' && val !== 12 ? 12 : 0);
-        }
-        const getStart = () => calcTime('#start_hour', '#start_half');
-        const getEnd = () => calcTime('#end_hour', '#end_half');
-        const getColor = () => {
-          const el = document.querySelector('#color');
-          return el.options[el.selectedIndex].value;
-        }
-        const getCells = (start, end) => {
-          return Array.from(document.querySelectorAll('.cell')).slice(start, end);
-        }
-        const colorCells = (cells, color) => {
-          console.log(cells, color);
-          switch (COLORS[color]) {
-            case COLORS.g:
-              cells.map(e => e.classList.remove(COLORS.y, COLORS.r));
-              break;
-            case COLORS.r:
-              cells.map(e => e.classList.add(COLORS.r));
-              break;
-            case COLORS.y:
-              cells.map(e => {
-                e.classList.remove(COLORS.r);
-                e.classList.add(COLORS.y);
-              });
-              break;
-            default:
-              console.info('no color given');
-          }
-        }
-        const btnClickHandler = () => {
-          const start = getStart();
-          const end = getEnd();
-          const color = getColor();
-          const cells = getCells(start, end);
-          console.log(start, end, color, cells);
-          colorCells(cells, color);
-        }
-        document.querySelector('#btn-draw').addEventListener('click', btnClickHandler)
-      });
-    </script>
-  </body>
+    </div>
+    <div class="form-group">
+      <label>Color</label>
+      <div class="select-wrapper">
+        <select id="color" name="color">
+          <option value="g">
+            Green
+          </option>
+          <option selected="true" value="y">
+            Yellow
+          </option>
+          <option value="r">
+            Red
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="btn-draw">Draw</button><button id="btn-reset">Reset</button>
+    </div>
+  </div>
+</main>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
 </html>
