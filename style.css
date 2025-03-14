@@ -14,7 +14,7 @@ h3 {
 #form {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1em;
 }
 .form-group {
   display: grid;
@@ -99,6 +99,8 @@ select:nth-child(2) {
 
 select {
   max-width: 76px;
+  min-width: 8ch;
+  padding: 0.25em;
 }
 
 button {
