@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const el2 = document.querySelector(halfId);
     const half = el2.options[el2.selectedIndex].value;
 
+    if (half === "am") {
+      return val === 12 && 0 || val;
+    }
+    
     return val + (half === "pm" && val !== 12 ? 12 : 0);
   };
 
